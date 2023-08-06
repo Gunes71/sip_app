@@ -1,0 +1,167 @@
+import sys
+from threading import Thread
+from flask import Flask, render_template, request, url_for, send_from_directory, jsonify
+from flask_socketio import SocketIO, emit
+from scapy.all import sniff, UDP, IP, Raw
+import logging
+from werkzeug.utils import secure_filename
+import os
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
+
+logging.basicConfig(filename='C:/Users/Gunes/Documents/Projects/sip_lis/log/app.log', level=logging.INFO)
+uploaded_files = []
+
+
+class SnifferThread(Thread):
+    def __init__(self):
+        super().__init__()
+        self.target_ips = []
+        self.sip_method = "No Filter"
+        self.sniffing = False
+        self.summary = []
+
+    def run(self):
+        self.sniffing = True
+        sniff(prn=self.packet_callback, filter="udp", store=0)
+
+    def stop(self):
+        self.sniffing = False
+
+    def packet_callback(self, packet):
+        if self.sniffing and packet.haslayer(UDP) and (packet[UDP].dport == 5060 or packet[UDP].sport == 5060):
+            if self.target_ips and not (packet[IP].src in self.target_ips or packet[IP].dst in self.target_ips):
+                return
+
+            raw_load = packet[Raw].load.decode(errors='replace')
+            if self.sip_method in raw_load or self.sip_method == "No Filter":
+                # Exclude packets that only contain a newline
+                if raw_load.strip() == '':
+                    return
+
+                packet_info = f"{packet[IP].src} -> {packet[IP].dst}\n{raw_load}"  # Removed port number
+                socketio.emit('packet_sniffed', packet_info)
+                sip_method_or_code = self.get_sip_method_or_code(raw_load)
+                self.update_summary(packet[IP].src, packet[IP].dst, sip_method_or_code)
+
+
+    def get_sip_method_or_code(self, raw_load):
+        lines = raw_load.split('\r\n')
+        first_line_parts = lines[0].split(' ')
+        if first_line_parts[0] == "SIP/2.0":
+            if first_line_parts[1].isdigit():
+                response_code = first_line_parts[1]
+                response_message = self.extract_response_message(raw_load)
+                if response_message:
+                    return f"{response_code} {response_message}"
+                else:
+                    return response_code
+            else:
+                return first_line_parts[1]
+        else:
+            return first_line_parts[0]
+
+    def extract_response_message(self, raw_load):
+        lines = raw_load.split('\r\n')
+        for line in lines:
+            if line.startswith("SIP/2.0 "):
+                return line.split(' ', 2)[2].strip()
+        return ""
+
+    def update_summary(self, src, dst, sip_method_or_code):
+        self.summary.append((src, dst, sip_method_or_code))
+        summary_text = "Source\t\tDestination\t\tMethod/Code\n"
+        summary_text += "\n".join(f"{src}\t\t{dst}\t\t{sip_method_or_code}" for src, dst, sip_method_or_code in self.summary)
+        socketio.emit('summary_updated', summary_text)
+
+sniffer_thread = SnifferThread()
+
+
+@app.route('/sip_sniffer')
+def sip_sniffer():
+    return render_template('sip_sniffer.html')
+
+@app.route('/sip_messenger')
+def sip_messenger():
+    return render_template('sip_messenger.html')
+
+
+@app.route('/')
+def index():
+    return render_template('dashboard.html')
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    file = request.files['file']
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    file_url = url_for('uploaded_file', filename=filename, _external=True)
+    uploaded_files.append((filename, file_url))
+    return {'url': file_url}
+
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    try:
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    except Exception as e:
+        app.logger.error(f'Error in /uploads/<filename>: {e}')
+        return str(e), 500
+
+@app.route('/get_uploaded_files', methods=['GET'])
+def get_uploaded_files():
+    return jsonify(uploaded_files)
+
+
+
+@app.route('/start', methods=['POST'])
+def start():
+    global sniffer_thread  # Make sure to declare the variable as global
+    target_ips = request.form.getlist('target_ips[]')
+    if sniffer_thread and sniffer_thread.is_alive():
+        sniffer_thread.stop()
+    sniffer_thread = SnifferThread()  # Create a new instance of the SnifferThread class
+    sniffer_thread.target_ips = target_ips
+    sniffer_thread.start()
+    return ('', 204)
+
+
+@app.route('/stop', methods=['POST'])
+def stop():
+    global sniffer_thread
+    if sniffer_thread and sniffer_thread.is_alive():
+        sniffer_thread.stop()
+    return ('', 204)
+
+
+
+
+@app.route('/set_ports', methods=['POST'])
+def set_ports():
+    try:
+        ports = request.form.getlist('ports[]')
+        sniffer_thread.target_ports = [int(port) for port in ports]
+        logging.info(f'Set ports to {ports}')
+        return ('', 204)
+    except Exception as e:
+        logging.error(f'Error in /set_ports: {e}')
+        return str(e), 500
+
+@app.route('/get_ports', methods=['GET'])
+def get_ports():
+    try:
+        return ','.join(str(port) for port in sniffer_thread.target_ports), 200
+    except Exception as e:
+        logging.error(f'Error in /get_ports: {e}')
+        return str(e), 500
+
+
+
+
+app.config['UPLOAD_FOLDER'] = 'C:/Users/huseyin.yilmaz/Documents/sip_lis/uploads'
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

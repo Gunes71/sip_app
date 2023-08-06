@@ -1,0 +1,101 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.167.152:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:37:57] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:37:57] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:37:57] "[36mGET /static/listen.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:37:57] "GET /get_uploaded_files HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:37:57] "[36mGET /static/glatter.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:22] "GET /sip_sniffer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:22] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ERROR:engineio.server:The WebSocket transport is not available, you must install a WebSocket server that is compatible with your async mode to enable it. See the documentation for details. (further occurrences of this error will be logged with level INFO)
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:23] "GET /socket.io/?EIO=4&transport=polling&t=Od2HTD9 HTTP/1.1" 200 -
+ERROR:root:Error in /get_ports: 'SnifferThread' object has no attribute 'target_ports'
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:23] "[35m[1mGET /get_ports HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:23] "POST /socket.io/?EIO=4&transport=polling&t=Od2HTDK&sid=v2kOekGrw2u-_bGOAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:23] "GET /socket.io/?EIO=4&transport=polling&t=Od2HTDK.0&sid=v2kOekGrw2u-_bGOAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:38:48] "GET /socket.io/?EIO=4&transport=polling&t=Od2HTIC&sid=v2kOekGrw2u-_bGOAAAA HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.167.152:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:40:49] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:40:49] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:40:49] "GET /get_uploaded_files HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:40:49] "[36mGET /static/listen.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:40:50] "[36mGET /static/glatter.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.167.152:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:42:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:42:04] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:42:04] "GET /get_uploaded_files HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:42:05] "[36mGET /static/listen.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:42:05] "[36mGET /static/glatter.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.167.152:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:43:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:43:23] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:43:23] "GET /get_uploaded_files HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:43:23] "[36mGET /static/listen.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Aug/2023 23:43:24] "[36mGET /static/glatter.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.254:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:55:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:55:56] "GET /static/dashboard.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:55:56] "GET /static/listen.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:55:56] "GET /get_uploaded_files HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:55:56] "GET /static/glatter.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:04] "GET /sip_sniffer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:04] "GET /static/main.js HTTP/1.1" 200 -
+ERROR:root:Error in /get_ports: 'SnifferThread' object has no attribute 'target_ports'
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:05] "[35m[1mGET /get_ports HTTP/1.1[0m" 500 -
+ERROR:engineio.server:The WebSocket transport is not available, you must install a WebSocket server that is compatible with your async mode to enable it. See the documentation for details. (further occurrences of this error will be logged with level INFO)
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:05] "GET /socket.io/?EIO=4&transport=polling&t=Od5LnD8 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:06] "POST /socket.io/?EIO=4&transport=polling&t=Od5LnIE&sid=Ra8B3YBpJixBgCTQAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:06] "GET /socket.io/?EIO=4&transport=polling&t=Od5LnIF&sid=Ra8B3YBpJixBgCTQAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:09] "GET /sip_messenger HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:09] "GET /static/sip_messenger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:24] "GET /sip_sniffer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:24] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:25] "GET /sip_messenger HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:25] "GET /socket.io/?EIO=4&transport=polling&t=Od5Lrzv HTTP/1.1" 200 -
+ERROR:root:Error in /get_ports: 'SnifferThread' object has no attribute 'target_ports'
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:25] "[35m[1mGET /get_ports HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:25] "[36mGET /static/sip_messenger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:26] "GET /sip_sniffer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:26] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:26] "[36mGET /static/listen.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:27] "GET /get_uploaded_files HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:56:30] "GET /socket.io/?EIO=4&transport=polling&t=Od5LnNI&sid=Ra8B3YBpJixBgCTQAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:18] "GET /sip_sniffer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:18] "GET /static/main.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:19] "GET /socket.io/?EIO=4&transport=polling&t=Od5M38R HTTP/1.1" 200 -
+ERROR:root:Error in /get_ports: 'SnifferThread' object has no attribute 'target_ports'
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:19] "[35m[1mGET /get_ports HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:19] "POST /socket.io/?EIO=4&transport=polling&t=Od5M3Ap&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:19] "GET /socket.io/?EIO=4&transport=polling&t=Od5M3Ar&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:44] "GET /socket.io/?EIO=4&transport=polling&t=Od5M3Fm&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:57:44] "POST /socket.io/?EIO=4&transport=polling&t=Od5M9HT&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:58:09] "GET /socket.io/?EIO=4&transport=polling&t=Od5M9HU&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:58:09] "POST /socket.io/?EIO=4&transport=polling&t=Od5MFOB&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:58:34] "GET /socket.io/?EIO=4&transport=polling&t=Od5MFOD&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:58:34] "POST /socket.io/?EIO=4&transport=polling&t=Od5MLZo&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:58:59] "GET /socket.io/?EIO=4&transport=polling&t=Od5MLZp&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:58:59] "POST /socket.io/?EIO=4&transport=polling&t=Od5MRgW&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:59:24] "GET /socket.io/?EIO=4&transport=polling&t=Od5MRgY&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:59:24] "POST /socket.io/?EIO=4&transport=polling&t=Od5MXs3&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Aug/2023 13:59:49] "GET /socket.io/?EIO=4&transport=polling&t=Od5MXs4&sid=jwnAAjAStzW-sHM5AAAD HTTP/1.1" 200 -
