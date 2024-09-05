@@ -28,7 +28,7 @@ class SnifferThread(Thread):
         sniff(prn=self.packet_callback, filter="udp", store=0)
 
     def stop(self):
-        self.sniffing = False
+        self.sniffing =   False
 
     def packet_callback(self, packet):
         if self.sniffing and packet.haslayer(UDP) and (packet[UDP].dport == 5060 or packet[UDP].sport == 5060):
